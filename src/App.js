@@ -9,12 +9,12 @@ const App = () => {
   const [contacts, setContacts] = useState(() => {
     return JSON.parse(localStorage.getItem("contacts")) ?? [];
   });
+  
+  const [filter, setFilter] = useState("");
 
   useEffect(() => {
     window.localStorage.setItem("contacts", JSON.stringify(contacts));
-  }, [contacts]);
-
-  const [filter, setFilter] = useState("");
+  }, [contacts]);  
 
   const onFormSubmit = ({ name, number }) => {
     const contact = {
